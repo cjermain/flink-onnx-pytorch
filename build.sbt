@@ -19,6 +19,7 @@ val flinkDependencies = Seq(
   "org.apache.flink" %% "flink-streaming-scala" % flinkVersion % "provided")
 
 libraryDependencies += "com.microsoft.onnxruntime" % "onnxruntime" % "1.4.0"
+libraryDependencies += "org.scalatest" %% "scalatest-flatspec" % "3.2.0" % "test"
 
 lazy val root = (project in file(".")).
   settings(
