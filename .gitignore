@@ -1,4 +1,5 @@
 *.swp
+**/*.ipynb_checkpoints/
 *.class
 *.log
 target/
