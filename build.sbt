@@ -3,7 +3,7 @@ ThisBuild / resolvers ++= Seq(
     Resolver.mavenLocal
 )
 
-name := "flink-onnx"
+name := "flink-onnx-pytorch"
 
 version := "0.0.1"
 
