@@ -4,7 +4,7 @@ import scala.collection.JavaConversions.mapAsJavaMap
 import org.apache.flink.api.common.functions.RichMapFunction
 import org.apache.flink.configuration.Configuration
 import ai.onnxruntime.OnnxTensor
-import com.datacolin.OrtModel
+
 
 class AddFive extends RichMapFunction[Float, Float] {
   var model: OrtModel = null
@@ -13,6 +13,11 @@ class AddFive extends RichMapFunction[Float, Float] {
     // Load the ONNX model
     model = new OrtModel("/add_five.onnx")
     model.load()
+  }
+
+  override def close(): Unit = {
+    model.session.close()
+    model.env.close()
   }
 
   def map(in: Float): Float = {
