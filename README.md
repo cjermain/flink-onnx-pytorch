@@ -7,7 +7,7 @@ served by a Scala program written for streaming with Flink.
 
 ## Training in PyTorch
 
-The [`/training`](./training) directory provides an example Jupyter Notebook
+The [`training/`](./training) directory provides an example Jupyter Notebook
 that uses PyTorch to create a simple network. The network is exported to ONNX
 through PyTorch. The network takes a variable length floating point tensor
 and adds a constant offset. This network could be easily replaced with a fully
@@ -15,7 +15,7 @@ trained neural network.
 
 ## Packaging the JAR
 
-The ONNX model is packaged as a resource, so that it can be distributed to the
+The ONNX model is [packaged as a resource](./src/main/resources/), so that it can be distributed to the
 Flink TaskManagers in the same JAR as the code.
 
 ```
