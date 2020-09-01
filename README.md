@@ -67,7 +67,7 @@ To run the JAR on a local cluster, make sure to start it first.
 The `com.datacolin.Job` can be submitted to the cluster through the CLI:
 
 ```bash
-./flink-1.11.1/bin/flink run -c com.datacolin.WordCount ./flink-onnx-pytorch/target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
+./flink-1.11.1/bin/flink run -c com.datacolin.Job ./flink-onnx-pytorch/target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
 ```
 
 The local cluster will provide output in the `log/` directory, which can be watched:
