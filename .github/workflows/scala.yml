@@ -22,5 +22,9 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.8
-    - name: Run tests
-      run: sbt test
+    - name: Run tests and build JAR
+      run: sbt clean assembly
+    - name: Upload JAR
+      uses: actions/upload-artifacts@v2
+      with:
+        path: ./target/scala-2.11/flink-onnx-pytorch-assembly-*.jar
