@@ -1,3 +1,5 @@
+![Scala CI](https://github.com/cjermain/flink-onnx-pytorch/workflows/Scala%20CI/badge.svg)
+
 # PyTorch on Flink with ONNX
 
 This repository shows an example of using [Apache Flink][1] to serve an [ONNX model][2]
