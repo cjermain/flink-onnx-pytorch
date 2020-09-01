@@ -25,6 +25,6 @@ jobs:
     - name: Run tests and build JAR
       run: sbt clean assembly
     - name: Upload JAR
-      uses: actions/upload-artifacts@v2
+      uses: actions/upload-artifact@v2
       with:
         path: ./target/scala-2.11/flink-onnx-pytorch-assembly-*.jar
