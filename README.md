@@ -34,6 +34,13 @@ sbt clean assembly
 The Scala code is also tested to ensure quality, and those tests are run by `sbt`.
 These tests exercise the inference of the ONNX model.
 
+The contents of the JAR can be inspected to see the included ONNX model and the
+onnxruntime library.
+
+```bash
+jar tf ./target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
+```
+
 ## Serving with onnxruntime
 
 The ONNX model is served using the [`onnxruntime`][4] library. The [Java API][5]
