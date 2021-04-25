@@ -35,7 +35,7 @@ The Scala code is also tested to ensure quality, and those tests are run by `sbt
 These tests exercise the inference of the ONNX model.
 
 The contents of the JAR can be inspected to see the included ONNX model and the
-onnxruntime library.
+[`onnxruntime`][4] library.
 
 ```bash
 jar tf ./target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
