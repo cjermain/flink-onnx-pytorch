@@ -11,14 +11,14 @@ organization := "com.datacolin"
 
 ThisBuild / scalaVersion := "2.11.12"
 
-val flinkVersion = "1.11.1"
+val flinkVersion = "1.12.2"
 
 val flinkDependencies = Seq(
   "org.apache.flink" %% "flink-clients" % flinkVersion % "provided",
   "org.apache.flink" %% "flink-scala" % flinkVersion % "provided",
   "org.apache.flink" %% "flink-streaming-scala" % flinkVersion % "provided")
 
-libraryDependencies += "com.microsoft.onnxruntime" % "onnxruntime" % "1.4.0"
+libraryDependencies += "com.microsoft.onnxruntime" % "onnxruntime" % "1.7.0"
 libraryDependencies += "org.scalatest" %% "scalatest-flatspec" % "3.2.0" % "test"
 
 lazy val root = (project in file(".")).

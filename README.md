@@ -48,8 +48,8 @@ The types need to be handled properly, since fractional values default to `Doubl
 in Scala unless specifically identified.
 
 [4]: https://github.com/microsoft/onnxruntime
-[5]: https://github.com/microsoft/onnxruntime/blob/master/docs/Java_API.md
-[6]: https://ci.apache.org/projects/flink/flink-docs-release-1.11/api/java/org/apache/flink/api/common/functions/RichMapFunction.html
+[5]: https://github.com/microsoft/onnxruntime/tree/master/java
+[6]: https://ci.apache.org/projects/flink/flink-docs-release-1.12/api/java/org/apache/flink/api/common/functions/RichMapFunction.html
 
 ## Streaming in Flink
 
@@ -61,24 +61,24 @@ another sink. The [DataStream API][7] is used in this example.
 To run the JAR on a local cluster, make sure to start it first.
 
 ```bash
-./flink-1.11.1/bin/start-cluster.sh
+./flink-1.12.2/bin/start-cluster.sh
 ```
 
 The `com.datacolin.Job` can be submitted to the cluster through the CLI:
 
 ```bash
-./flink-1.11.1/bin/flink run -c com.datacolin.Job ./flink-onnx-pytorch/target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
+./flink-1.12.2/bin/flink run -c com.datacolin.Job ./flink-onnx-pytorch/target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
 ```
 
 The local cluster will provide output in the `log/` directory, which can be watched:
 
 ```bash
-tail -f ./flink-1.11.1/log/*.out
+tail -f ./flink-1.12.2/log/*.out
 ```
 
 The static dataset should be output with the added offset.
 
-[7]: https://ci.apache.org/projects/flink/flink-docs-release-1.11/dev/datastream_api.html
+[7]: https://ci.apache.org/projects/flink/flink-docs-release-1.12/dev/datastream_api.html
 
 ## Future directions
 
