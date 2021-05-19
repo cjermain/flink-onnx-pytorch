@@ -68,19 +68,19 @@ another sink. The [DataStream API][7] is used in this example.
 To run the JAR on a local cluster, make sure to start it first.
 
 ```bash
-./flink-1.12.2/bin/start-cluster.sh
+./flink-1.13.0/bin/start-cluster.sh
 ```
 
 The `com.datacolin.Job` can be submitted to the cluster through the CLI:
 
 ```bash
-./flink-1.12.2/bin/flink run -c com.datacolin.Job ./flink-onnx-pytorch/target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
+./flink-1.13.0/bin/flink run -c com.datacolin.Job ./flink-onnx-pytorch/target/scala-2.11/flink-onnx-pytorch-assembly-0.0.1.jar
 ```
 
 The local cluster will provide output in the `log/` directory, which can be watched:
 
 ```bash
-tail -f ./flink-1.12.2/log/*.out
+tail -f ./flink-1.13.0/log/*.out
 ```
 
 The static dataset should be output with the added offset.

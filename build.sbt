@@ -11,7 +11,7 @@ organization := "com.datacolin"
 
 ThisBuild / scalaVersion := "2.11.12"
 
-val flinkVersion = "1.12.2"
+val flinkVersion = "1.13.0"
 
 val flinkDependencies = Seq(
   "org.apache.flink" %% "flink-clients" % flinkVersion % "provided",
