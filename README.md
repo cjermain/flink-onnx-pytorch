@@ -13,15 +13,15 @@ served by a Scala program written for streaming with Flink.
 
 ## Training in PyTorch
 
-The [`training/`](./training) directory provides an example Jupyter Notebook
-that uses PyTorch to create a simple network. The network is exported to ONNX
-through PyTorch. The network takes a variable length floating point tensor
-and adds a constant offset. This network could be easily replaced with a fully
-trained neural network.
+The [`training/`](./training) directory provides two example Jupyter Notebooks
+that uses PyTorch to create simple networks. The networks are exported to ONNX
+through PyTorch. The simple network takes a variable length floating point tensor
+and adds a constant offset. The MNIST network solves the classic handwritten number
+classification problem that is a mainstay of neural network tutorials.
 
 ## Packaging the JAR
 
-The ONNX model is [packaged as a resource](./src/main/resources/), so that it can be
+The ONNX models are [packaged as a resource](./src/main/resources/), so that they can be
 distributed to the Flink TaskManagers in the same JAR as the code.
 
 The Flink application follows the standard template for SBT. The JAR can be built
@@ -32,9 +32,9 @@ sbt clean assembly
 ```
 
 The Scala code is also tested to ensure quality, and those tests are run by `sbt`.
-These tests exercise the inference of the ONNX model.
+These tests exercise the inference of the ONNX models.
 
-The contents of the JAR can be inspected to see the included ONNX model and the
+The contents of the JAR can be inspected to see the included ONNX models and the
 [`onnxruntime`][4] library.
 
 ```bash
@@ -47,9 +47,10 @@ The ONNX model is served using the [`onnxruntime`][4] library. The [Java API][5]
 is used, which provides a similar interface to Python. The `OrtModel` class is added as a
 convenience wrapper to handle loading from the resources directory.
 
-Running the model inference is wrapped by the `AddFive` class, which extends the
-[`RichMapFunction`][6]. This allows the `open` and `close` methods to handle the model
-loading and closing. The `map` method runs the input value through the ONNX model.
+Running the model inference for the simple case is wrapped by the `AddFive` class,
+which extends the [`RichMapFunction`][6]. This allows the `open` and `close` methods
+to handle the model loading and closing. The `map` method runs the input value through
+the ONNX model.
 
 The types need to be handled properly, since fractional values default to `Double`
 in Scala unless specifically identified.
@@ -60,9 +61,9 @@ in Scala unless specifically identified.
 
 ## Streaming in Flink
 
-With the JAR built, the Flink job can be submitted. The job is written over a static
-dataset of numbers as a simple example. This could be easily replaced by another source.
-The job outputs the results to stdout for simplicity, which could also be replaced by
+With the JAR built, the Flink jobs can be submitted. The jobs are written over a static
+dataset of numbers for the simple example. This could be easily replaced by another source.
+The jobs output the results to stdout for simplicity, which could also be replaced by
 another sink. The [DataStream API][7] is used in this example.
 
 To run the JAR on a local cluster, make sure to start it first.
@@ -84,6 +85,8 @@ tail -f ./flink-1.13.0/log/*.out
 ```
 
 The static dataset should be output with the added offset.
+
+The MNIST example can be run using the `ai.vectra.Job`.
 
 [7]: https://ci.apache.org/projects/flink/flink-docs-release-1.12/dev/datastream_api.html
 
